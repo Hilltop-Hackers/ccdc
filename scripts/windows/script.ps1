@@ -258,9 +258,7 @@ Function Start-Downloads {
 $urls = @(
     "https://github.com/SpecterOps/SharpHound/releases/download/v2.5.13/SharpHound-v2.5.13.zip",
     "https://download.sysinternals.com/files/SysinternalsSuite.zip",
-    "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US",
-    "https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe",
-    ""
+    "https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe"
 )
 
 # Output directory (modify as needed)
@@ -290,11 +288,14 @@ foreach ($url in $urls) {
         Write-Error "Failed to download $url : $($_.Exception.Message)"
     }
 }
+
+wget -O "C:\Users\$user\Desktop\Downloaded Tools\FirefoxSetup.exe" "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US"
+#i cant figure out another way to get this setup exe. sorry
 $bhce = Read-Host 'As part of this process, an exclusionary zone was set in Windows Defender for a Bloodhound Collector. Do you want to run that now, and then remove the zone? (Y/N)'
 if ($bhce -eq "Y" -or $bche -eq "y") {
 
 Expand-Archive -Path "C:\Users\$user\Desktop\Downloaded Tools\SharpHound-v2.5.13.zip" -DestinationPath "C:\Users\$user\Desktop\Downloaded Tools\Sharphound"
-"C:\Users\$user\Desktop\Downloaded Tools\SharpHound-v2.5.13\SharpHound.exe"
+cmd /c "C:\Users\$user\Desktop\Downloaded Tools\SharpHound\SharpHound.exe"
 Remove-MpPreference -ExclusionPath $downloadPath
 }
 }
