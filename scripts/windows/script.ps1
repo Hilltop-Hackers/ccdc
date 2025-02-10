@@ -258,7 +258,9 @@ Function Start-Downloads {
 $urls = @(
     "https://github.com/SpecterOps/SharpHound/releases/download/v2.5.13/SharpHound-v2.5.13.zip",
     "https://download.sysinternals.com/files/SysinternalsSuite.zip",
-    "https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe"
+    "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US",
+    "https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe",
+    ""
 )
 
 # Output directory (modify as needed)
