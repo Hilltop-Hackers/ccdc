@@ -265,7 +265,7 @@ $urls = @(
 
 # Output directory (modify as needed)
 $downloadPath = "C:\Users\$user\Desktop\Downloaded Tools"
-New-Item -Path "c:\Users\$user\" -Name "Downloaded Tools" -ItemType "directory"
+New-Item -Path "c:\Users\$user\Desktop\" -Name "Downloaded Tools" -ItemType "directory"
 Add-MpPreference -ExclusionPath $downloadPath
 # Loop through each URL
 foreach ($url in $urls) {
